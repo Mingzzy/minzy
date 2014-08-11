@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul class="entries">
+{% for entry in entries %}
+    <li class="clearfix"><h2>{{ entry['id'] }}.{{ entry['title'] }}</h2>
+      {{ entry['contents'] }}<br>
+      {{ entry['time'] }}
+        <a href="{{ entry['url'] }}"target="_blank" class="btn btn-s btn-default">url</a>
+        <div class="pull-right">
+          <p class="glyphicon glyphicon-thumbs-up">{{ entry['likecount'] }}</p>
+          <a href="{{url_for('like_entry',key=entry['id'])}}">좋아요</a>
+          <a href="{{url_for('dislike_entry',key=entry['id'])}}" style="color:red">싫어요</a>
+          <a href="{{url_for('del_entry',key=entry['id'])}}" class="btn btn-xs btn-danger">지우기</a>
+          <a href="{{url_for('edit_entry',key=entry['id'])}}" class="btn btn-xs btn-danger">고치기</a>
+        {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+{% endblock %}

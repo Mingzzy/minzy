@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<div>
+	GET:
+	<form action="test" method="get">
+		<input type="text" name="text_get">
+		<input type="Submit" value="Submit">
+	</form>
+
+	<a href="{{ variable_get }}" target="_blank">{{ variable_get }}</a>
+
+</div>
+{% endblock %}
